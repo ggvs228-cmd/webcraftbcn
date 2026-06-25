@@ -1429,11 +1429,9 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     toast(i18n[lang].toast_err, '#c00'); return;
   }
-  // Wire up Formspree: uncomment below and replace YOUR_ID
-  // fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: new FormData(this), headers:{Accept:'application/json'} })
-  //   .then(r => r.ok ? (toast(i18n[lang].toast_ok), this.reset()) : toast('Error — try again.', '#c00'));
-  toast(i18n[lang].toast_ok);
-  this.reset();
+  fetch('https://formspree.io/f/xnjkppjo', { method:'POST', body: new FormData(this), headers:{Accept:'application/json'} })
+    .then(r => r.ok ? (toast(i18n[lang].toast_ok), this.reset()) : toast('Error — try again.', '#c00'))
+    .catch(() => toast('Error — try again.', '#c00'));
 });
 function toast(msg, bg) {
   const t = document.getElementById('toast');
