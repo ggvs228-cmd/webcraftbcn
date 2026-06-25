@@ -3,830 +3,606 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Professional web design in Barcelona — free websites in exchange for a review. Looking for first clients." />
+  <meta name="description" content="Professional web design in Barcelona — free websites in exchange for a review." />
   <meta name="keywords" content="web design Barcelona, free website, diseño web Barcelona, disseny web Barcelona" />
-  <meta name="author" content="Web Creator Barcelona" />
-  <meta property="og:title" content="Web Creator Barcelona — Free Websites for Reviews" />
-  <meta property="og:description" content="I build professional websites for free in exchange for a testimonial. Based in Barcelona." />
+  <meta name="author" content="N1 Web Design Barcelona" />
+  <meta property="og:title" content="N1 Web Design Barcelona" />
+  <meta property="og:description" content="I build professional websites for free, in exchange for an honest review. Based in Barcelona." />
   <meta property="og:type" content="website" />
-  <title>Web Creator Barcelona</title>
+  <title>N1 Web Design Barcelona</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap" rel="stylesheet" />
   <style>
-    /* ── Reset & Base ─────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg:        #ffffff;
-      --bg-soft:   #f5f7ff;
-      --bg-card:   #ffffff;
-      --text:      #111827;
-      --text-muted:#6b7280;
-      --accent:    #4f46e5;
-      --accent-2:  #7c3aed;
-      --accent-grd:linear-gradient(135deg, #4f46e5, #7c3aed);
-      --border:    #e5e7eb;
-      --shadow:    0 4px 24px rgba(79,70,229,.12);
-      --radius:    14px;
-      --radius-sm: 8px;
-      --nav-h:     68px;
-      --transition:.25s ease;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      font-size: 16px;
-    }
-    img { max-width: 100%; height: auto; display: block; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
 
-    /* ── Scrollbar ────────────────────────────────── */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg-soft); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+/* ── Reset ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #ffffff;
+  color: #111111;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; }
 
-    /* ── Utility ──────────────────────────────────── */
-    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-    .section { padding: 96px 0; }
-    .section-tag {
-      display: inline-block;
-      background: linear-gradient(135deg, rgba(79,70,229,.12), rgba(124,58,237,.12));
-      color: var(--accent);
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 100px;
-      margin-bottom: 16px;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .section-sub {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 560px;
-      margin-bottom: 56px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      border-radius: 100px;
-      font-size: .95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      border: none;
-    }
-    .btn-primary {
-      background: var(--accent-grd);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(79,70,229,.35);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(79,70,229,.45); }
-    .btn-outline {
-      background: transparent;
-      color: var(--accent);
-      border: 2px solid var(--accent);
-    }
-    .btn-outline:hover { background: var(--accent); color: #fff; }
-    .highlight { background: var(--accent-grd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+/* ── Variables ──────────────────────────────────────── */
+:root {
+  --black:   #111111;
+  --mid:     #555555;
+  --muted:   #999999;
+  --border:  #e8e8e8;
+  --bg-soft: #f7f7f7;
+  --white:   #ffffff;
+  --accent:  #111111;
+  --nav-h:   64px;
+  --ease:    cubic-bezier(.4,0,.2,1);
+}
 
-    /* ── Nav ──────────────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: var(--nav-h);
-      background: rgba(255,255,255,.9);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      transition: var(--transition);
-    }
-    .nav-inner {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-size: 1.15rem;
-      font-weight: 800;
-      background: var(--accent-grd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    .nav-links a {
-      font-size: .9rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      transition: var(--transition);
-    }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    /* Language switcher */
-    .lang-switcher {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      background: var(--bg-soft);
-      border-radius: 100px;
-      padding: 4px;
-    }
-    .lang-btn {
-      padding: 5px 12px;
-      border-radius: 100px;
-      font-size: .8rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      background: transparent;
-      color: var(--text-muted);
-      transition: var(--transition);
-    }
-    .lang-btn.active {
-      background: var(--accent-grd);
-      color: #fff;
-    }
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-      background: none;
-      border: none;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--text);
-      border-radius: 2px;
-      transition: var(--transition);
-    }
-    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-    /* Mobile nav */
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      top: var(--nav-h); left: 0; right: 0;
-      background: #fff;
-      border-bottom: 1px solid var(--border);
-      z-index: 99;
-      padding: 24px;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a {
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--text);
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .mobile-nav .lang-switcher { align-self: flex-start; margin-top: 8px; }
+/* ── Typography scale ───────────────────────────────── */
+.t-display {
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -.03em;
+}
+.t-h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.025em;
+}
+.t-h2 {
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+.t-label {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.t-body { font-size: 1rem; color: var(--mid); line-height: 1.75; }
+.t-small { font-size: .875rem; color: var(--mid); line-height: 1.7; }
 
-    /* ── Hero ─────────────────────────────────────── */
-    .hero {
-      min-height: 100vh;
-      padding-top: var(--nav-h);
-      display: flex;
-      align-items: center;
-      background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(79,70,229,.08) 0%, transparent 70%),
-                  radial-gradient(ellipse 50% 50% at 10% 80%, rgba(124,58,237,.06) 0%, transparent 60%),
-                  var(--bg);
-      overflow: hidden;
-    }
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-      padding: 80px 24px;
-      max-width: 1120px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(79,70,229,.1);
-      border: 1px solid rgba(79,70,229,.2);
-      border-radius: 100px;
-      padding: 8px 16px;
-      font-size: .82rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 24px;
-    }
-    .hero-badge .dot {
-      width: 8px; height: 8px;
-      background: #22c55e;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .5; transform: scale(1.3); }
-    }
-    .hero-title {
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 24px;
-    }
-    .hero-sub {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 40px;
-      max-width: 480px;
-    }
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      margin-top: 48px;
-      flex-wrap: wrap;
-    }
-    .stat-item { }
-    .stat-num {
-      font-size: 1.8rem;
-      font-weight: 800;
-      background: var(--accent-grd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .stat-label { font-size: .82rem; color: var(--text-muted); font-weight: 500; }
-    /* Hero visual */
-    .hero-visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-    .hero-mockup {
-      width: 100%;
-      max-width: 480px;
-      background: var(--bg-card);
-      border-radius: 20px;
-      box-shadow: 0 24px 80px rgba(79,70,229,.18), 0 4px 24px rgba(0,0,0,.06);
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .mockup-bar {
-      background: var(--bg-soft);
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .mockup-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-    }
-    .mockup-dot:nth-child(1) { background: #ff5f57; }
-    .mockup-dot:nth-child(2) { background: #febc2e; }
-    .mockup-dot:nth-child(3) { background: #28c840; }
-    .mockup-url {
-      flex: 1; background: #fff; border-radius: 6px;
-      padding: 5px 12px; font-size: .75rem; color: var(--text-muted);
-      border: 1px solid var(--border); margin-left: 12px;
-    }
-    .mockup-body { padding: 20px; }
-    .mockup-hero-bar {
-      background: linear-gradient(135deg, rgba(79,70,229,.15), rgba(124,58,237,.1));
-      border-radius: 10px;
-      height: 120px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .mockup-hero-bar svg { opacity: .4; }
-    .mockup-lines { display: flex; flex-direction: column; gap: 8px; }
-    .mockup-line {
-      height: 10px;
-      background: var(--bg-soft);
-      border-radius: 5px;
-    }
-    .mockup-line:nth-child(1) { width: 70%; }
-    .mockup-line:nth-child(2) { width: 50%; }
-    .mockup-line:nth-child(3) { width: 85%; }
-    .mockup-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 10px;
-      margin-top: 16px;
-    }
-    .mockup-card {
-      background: var(--bg-soft);
-      border-radius: 8px;
-      height: 70px;
-    }
-    .float-badge {
-      position: absolute;
-      background: #fff;
-      border-radius: 12px;
-      padding: 10px 14px;
-      box-shadow: 0 8px 32px rgba(0,0,0,.1);
-      font-size: .78rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid var(--border);
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    .float-badge.b1 { bottom: 24px; left: -16px; animation-delay: 0s; }
-    .float-badge.b2 { top: 40px; right: -16px; animation-delay: 1.5s; }
-    .badge-icon { font-size: 1.2rem; }
+/* ── Layout ─────────────────────────────────────────── */
+.container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+.section { padding: 112px 0; }
+.section-sm { padding: 80px 0; }
+.divider { width: 100%; height: 1px; background: var(--border); }
 
-    /* ── How it works ─────────────────────────────── */
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-    .step-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      position: relative;
-      transition: var(--transition);
-    }
-    .step-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: rgba(79,70,229,.3);
-    }
-    .step-num {
-      font-size: 3rem;
-      font-weight: 800;
-      background: var(--accent-grd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-    .step-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
-    .step-text { font-size: .9rem; color: var(--text-muted); line-height: 1.7; }
-    .step-icon {
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, rgba(79,70,229,.1), rgba(124,58,237,.1));
-      border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-    }
+/* ── Nav ─────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-h);
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.nav-logo {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: var(--black);
+  white-space: nowrap;
+}
+.nav-logo span { color: var(--muted); font-weight: 400; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav-links a {
+  font-size: .875rem;
+  color: var(--mid);
+  transition: color .2s var(--ease);
+}
+.nav-links a:hover { color: var(--black); }
+.nav-right { display: flex; align-items: center; gap: 12px; }
 
-    /* ── Portfolio ────────────────────────────────── */
-    .portfolio-bg { background: var(--bg-soft); }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .portfolio-card {
-      background: var(--bg-card);
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      transition: var(--transition);
-      cursor: pointer;
-    }
-    .portfolio-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-    .portfolio-img {
-      width: 100%; height: 200px;
-      background: linear-gradient(135deg, var(--bg-soft), rgba(79,70,229,.08));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
-    .portfolio-img img { width: 100%; height: 100%; object-fit: cover; }
-    .portfolio-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      color: var(--text-muted);
-    }
-    .portfolio-placeholder .icon { font-size: 2.5rem; opacity: .4; }
-    .portfolio-placeholder span { font-size: .82rem; font-weight: 500; opacity: .6; }
-    .portfolio-info { padding: 20px; }
-    .portfolio-tag {
-      font-size: .75rem;
-      font-weight: 600;
-      color: var(--accent);
-      background: rgba(79,70,229,.08);
-      padding: 3px 10px;
-      border-radius: 100px;
-      display: inline-block;
-      margin-bottom: 10px;
-    }
-    .portfolio-name { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-    .portfolio-desc { font-size: .85rem; color: var(--text-muted); }
-    .coming-soon-badge {
-      position: absolute;
-      top: 12px; right: 12px;
-      background: rgba(0,0,0,.6);
-      color: #fff;
-      font-size: .7rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 100px;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-    }
+/* Language switcher */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 3px;
+  background: var(--bg-soft);
+}
+.lang-btn {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  transition: all .2s var(--ease);
+}
+.lang-btn.active {
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
 
-    /* ── Services / Offer ─────────────────────────── */
-    .offer-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    .offer-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    .offer-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--accent-grd);
-      opacity: 0;
-      transition: var(--transition);
-    }
-    .offer-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .offer-card:hover::before { opacity: 1; }
-    .offer-icon {
-      font-size: 2rem;
-      margin-bottom: 16px;
-    }
-    .offer-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
-    .offer-text { font-size: .9rem; color: var(--text-muted); line-height: 1.7; }
-    .offer-list {
-      margin-top: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .offer-list li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .88rem;
-      color: var(--text-muted);
-    }
-    .offer-list li::before {
-      content: '✓';
-      color: var(--accent);
-      font-weight: 700;
-      font-size: .8rem;
-    }
+/* CTA button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: .875rem;
+  font-weight: 600;
+  border: none;
+  transition: all .2s var(--ease);
+  cursor: pointer;
+}
+.btn-dark {
+  background: var(--black);
+  color: var(--white);
+}
+.btn-dark:hover { background: #2a2a2a; transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  color: var(--black);
+  border: 1px solid var(--border);
+}
+.btn-outline:hover { border-color: var(--black); background: var(--bg-soft); }
+.btn-lg { padding: 14px 28px; font-size: .95rem; border-radius: 10px; }
+.btn-full { width: 100%; justify-content: center; }
 
-    /* ── Reviews ──────────────────────────────────── */
-    .reviews-bg { background: var(--bg-soft); }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .review-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .review-stars { color: #f59e0b; font-size: 1rem; letter-spacing: 2px; }
-    .review-text {
-      font-size: .92rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      font-style: italic;
-      flex: 1;
-    }
-    .review-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .review-avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(79,70,229,.2), rgba(124,58,237,.2));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-      overflow: hidden;
-    }
-    .review-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .review-name { font-size: .9rem; font-weight: 700; }
-    .review-role { font-size: .78rem; color: var(--text-muted); }
-    .review-placeholder {
-      border: 2px dashed var(--border);
-      background: transparent;
-    }
-    .review-placeholder .review-text {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-    .review-placeholder .icon { font-size: 2rem; opacity: .3; }
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block; width: 20px; height: 1.5px;
+  background: var(--black); border-radius: 2px;
+  transition: all .25s var(--ease);
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
 
-    /* ── About ────────────────────────────────────── */
-    .about-inner {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    .about-text p { color: var(--text-muted); margin-bottom: 20px; line-height: 1.8; }
-    .skills-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
-    .skill-tag {
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-size: .82rem;
-      font-weight: 600;
-      color: var(--text);
-    }
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: var(--nav-h); left: 0; right: 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  z-index: 99;
+  padding: 20px 32px 28px;
+  flex-direction: column;
+  gap: 4px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-size: 1rem;
+  color: var(--mid);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color .2s;
+}
+.mobile-nav a:hover { color: var(--black); }
+.mobile-nav .lang-switcher { align-self: flex-start; margin-top: 16px; }
 
-    /* ── CTA ──────────────────────────────────────── */
-    .cta-section {
-      background: var(--accent-grd);
-      padding: 96px 0;
-      text-align: center;
-      color: #fff;
-    }
-    .cta-tag {
-      background: rgba(255,255,255,.2);
-      color: #fff;
-    }
-    .cta-title {
-      color: #fff;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      margin-bottom: 16px;
-    }
-    .cta-sub {
-      color: rgba(255,255,255,.8);
-      margin: 0 auto 40px;
-    }
-    .btn-white {
-      background: #fff;
-      color: var(--accent);
-      font-weight: 700;
-      box-shadow: 0 8px 32px rgba(0,0,0,.15);
-    }
-    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,.2); }
-    .btn-white-outline {
-      background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,.5);
-    }
-    .btn-white-outline:hover { background: rgba(255,255,255,.15); }
-    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .spots-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,.15);
-      border: 1px solid rgba(255,255,255,.3);
-      border-radius: 100px;
-      padding: 8px 20px;
-      font-size: .85rem;
-      font-weight: 600;
-      margin-bottom: 32px;
-      color: #fff;
-    }
-    .spots-dot {
-      width: 8px; height: 8px;
-      background: #86efac;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
+/* ── Hero ────────────────────────────────────────────── */
+.hero {
+  padding-top: var(--nav-h);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+.hero-inner {
+  padding: 80px 32px;
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.hero-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+}
+.hero-title { margin-bottom: 24px; }
+.hero-sub { margin-bottom: 40px; max-width: 440px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-meta {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.meta-num {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -.03em;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.meta-label { font-size: .8rem; color: var(--muted); }
 
-    /* ── Contact ──────────────────────────────────── */
-    .contact-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .contact-info h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 16px; }
-    .contact-info p { color: var(--text-muted); margin-bottom: 32px; line-height: 1.8; }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
-    }
-    .contact-icon {
-      width: 44px; height: 44px;
-      background: var(--bg-soft);
-      border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-    .contact-label { font-size: .8rem; color: var(--text-muted); font-weight: 500; }
-    .contact-val { font-size: .95rem; font-weight: 600; }
-    /* Form */
-    .contact-form {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 36px;
-    }
-    .form-group { margin-bottom: 20px; }
-    .form-label {
-      display: block;
-      font-size: .85rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-    .form-input, .form-textarea, .form-select {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      font-family: inherit;
-      font-size: .9rem;
-      color: var(--text);
-      background: var(--bg);
-      transition: var(--transition);
-      outline: none;
-    }
-    .form-input:focus, .form-textarea:focus, .form-select:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(79,70,229,.1);
-    }
-    .form-textarea { min-height: 120px; resize: vertical; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-submit { width: 100%; justify-content: center; }
+/* Hero visual */
+.hero-visual { position: relative; }
+.browser-frame {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+}
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-soft);
+}
+.b-dot { width: 9px; height: 9px; border-radius: 50%; }
+.b-dot:nth-child(1) { background: #ff5f57; }
+.b-dot:nth-child(2) { background: #febc2e; }
+.b-dot:nth-child(3) { background: #28c840; }
+.b-url {
+  flex: 1; margin-left: 10px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: .72rem;
+  color: var(--muted);
+}
+.browser-content { padding: 24px; }
+.bc-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px;
+}
+.bc-logo { width: 60px; height: 8px; background: var(--black); border-radius: 3px; }
+.bc-nav-links { display: flex; gap: 8px; }
+.bc-nav-link { width: 30px; height: 6px; background: var(--border); border-radius: 3px; }
+.bc-hero { background: var(--bg-soft); border-radius: 8px; height: 100px; margin-bottom: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.bc-title { width: 55%; height: 10px; background: #d4d4d4; border-radius: 4px; }
+.bc-sub { width: 40%; height: 7px; background: var(--border); border-radius: 4px; }
+.bc-cta { width: 70px; height: 22px; background: var(--black); border-radius: 4px; margin-top: 4px; }
+.bc-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.bc-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 6px; height: 56px; }
 
-    /* ── Footer ───────────────────────────────────── */
-    footer {
-      background: #0f172a;
-      color: rgba(255,255,255,.6);
-      padding: 48px 0 32px;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-    .footer-logo {
-      font-size: 1.1rem;
-      font-weight: 800;
-      background: var(--accent-grd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .footer-copy { font-size: .82rem; }
-    .footer-links {
-      display: flex;
-      gap: 24px;
-    }
-    .footer-links a {
-      font-size: .82rem;
-      color: rgba(255,255,255,.5);
-      transition: var(--transition);
-    }
-    .footer-links a:hover { color: #fff; }
+.v-badge {
+  position: absolute;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.06);
+  white-space: nowrap;
+}
+.v-badge-icon { font-size: 1rem; }
+.v-badge.b1 { bottom: 20px; left: -28px; animation: vfloat 4s ease-in-out infinite; }
+.v-badge.b2 { top: 24px; right: -20px; animation: vfloat 4s ease-in-out infinite .8s; }
+@keyframes vfloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
 
-    /* ── Hidden lang content ──────────────────────── */
-    [data-lang] { display: none; }
-    [data-lang].active { display: block; }
-    span[data-lang].active { display: inline; }
+/* ── Section label ───────────────────────────────────── */
+.section-label { margin-bottom: 48px; }
+.section-label .t-label { margin-bottom: 12px; display: block; }
+.section-label .t-h1 { margin-bottom: 16px; }
+.section-label .t-body { max-width: 520px; }
+.section-label.centered { text-align: center; }
+.section-label.centered .t-body { margin: 0 auto; }
 
-    /* ── Responsive ───────────────────────────────── */
-    @media (max-width: 1024px) {
-      .steps-grid { grid-template-columns: repeat(3, 1fr); }
-      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 768px) {
-      .section { padding: 72px 0; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px; }
-      .hero-visual { order: -1; }
-      .hero-mockup { max-width: 340px; margin: 0 auto; }
-      .float-badge.b1 { left: 0; }
-      .float-badge.b2 { right: 0; }
-      .steps-grid { grid-template-columns: 1fr; }
-      .portfolio-grid { grid-template-columns: 1fr; }
-      .offer-grid { grid-template-columns: 1fr; }
-      .reviews-grid { grid-template-columns: 1fr; }
-      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
-      .form-row { grid-template-columns: 1fr; }
-      .about-float { bottom: -10px; right: 10px; }
-      .section-sub { margin-bottom: 40px; }
-    }
-    @media (max-width: 480px) {
-      .hero-actions { flex-direction: column; }
-      .hero-actions .btn { text-align: center; justify-content: center; }
-      .hero-stats { gap: 24px; }
-      .cta-actions { flex-direction: column; align-items: center; }
-      .contact-form { padding: 24px 20px; }
-    }
+/* ── Steps ───────────────────────────────────────────── */
+.steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.step-item { background: var(--white); padding: 40px 36px; transition: background .2s var(--ease); }
+.step-item:hover { background: var(--bg-soft); }
+.step-n {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 3px 9px;
+  margin-bottom: 24px;
+}
+.step-item .t-h2 { margin-bottom: 12px; }
 
-    /* ── Toast ────────────────────────────────────── */
-    .toast {
-      position: fixed;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: #0f172a;
-      color: #fff;
-      padding: 14px 24px;
-      border-radius: 100px;
-      font-size: .9rem;
-      font-weight: 600;
-      z-index: 999;
-      opacity: 0;
-      transition: all .35s ease;
-      pointer-events: none;
-    }
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+/* ── Services ────────────────────────────────────────── */
+.services-bg { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.service-item { background: var(--white); padding: 40px 36px; }
+.service-item:hover { background: #fdfdfd; }
+.s-icon { font-size: 1.5rem; margin-bottom: 20px; display: block; }
+.service-item .t-h2 { margin-bottom: 10px; }
+.service-item .t-small { margin-bottom: 20px; }
+.feature-list { display: flex; flex-direction: column; gap: 8px; }
+.feature-list li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: .85rem; color: var(--mid);
+}
+.f-check {
+  width: 16px; height: 16px; flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+}
+.f-check::after { content: ''; display: block; width: 5px; height: 5px; border-radius: 50%; background: var(--black); }
 
-    /* ── Fade-in animation ────────────────────────── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+/* ── Portfolio ───────────────────────────────────────── */
+.portfolio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.p-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow .25s var(--ease), transform .25s var(--ease);
+  background: var(--white);
+}
+.p-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.07); transform: translateY(-3px); }
+.p-img {
+  width: 100%; height: 180px;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.p-img img { width: 100%; height: 100%; object-fit: cover; }
+.p-placeholder {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: var(--muted); font-size: .8rem;
+}
+.p-placeholder svg { opacity: .3; }
+.p-soon {
+  position: absolute; top: 10px; right: 10px;
+  background: rgba(0,0,0,.55); color: #fff;
+  font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  padding: 4px 9px; border-radius: 5px;
+}
+.p-body { padding: 18px 20px; }
+.p-tag { font-size: .72rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+.p-name { font-size: .95rem; font-weight: 600; margin-bottom: 4px; }
+.p-desc { font-size: .82rem; color: var(--muted); }
+
+/* ── About ───────────────────────────────────────────── */
+.about-inner { max-width: 640px; }
+.about-inner .t-body { margin-bottom: 16px; }
+.skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.skill {
+  font-size: .78rem; font-weight: 500;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 12px;
+  color: var(--mid);
+  background: var(--bg-soft);
+}
+
+/* ── Reviews ─────────────────────────────────────────── */
+.reviews-bg { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.r-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex; flex-direction: column; gap: 16px;
+  transition: box-shadow .25s var(--ease);
+}
+.r-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.05); }
+.r-card.r-ph {
+  border-style: dashed;
+  background: transparent;
+}
+.r-stars { font-size: .85rem; letter-spacing: 2px; color: #d4d4d4; }
+.r-card.r-ph .r-stars { opacity: .4; }
+.r-text { font-size: .9rem; color: var(--mid); line-height: 1.75; font-style: italic; flex: 1; }
+.r-ph .r-text { color: var(--muted); font-style: normal; font-size: .85rem; text-align: center; padding: 12px 0; }
+.r-author { display: flex; align-items: center; gap: 12px; }
+.r-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--bg-soft); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9rem; overflow: hidden; flex-shrink: 0;
+}
+.r-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.r-name { font-size: .875rem; font-weight: 600; }
+.r-role { font-size: .78rem; color: var(--muted); }
+
+/* ── CTA strip ───────────────────────────────────────── */
+.cta-strip {
+  background: var(--black);
+  padding: 96px 0;
+  color: var(--white);
+  border-top: none;
+}
+.cta-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+.cta-tag { color: rgba(255,255,255,.4); margin-bottom: 16px; display: block; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.cta-strip .t-h1 { color: var(--white); margin-bottom: 16px; }
+.cta-strip .t-body { color: rgba(255,255,255,.55); margin-bottom: 36px; }
+.cta-avail {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: .8rem; color: rgba(255,255,255,.7); font-weight: 500;
+  margin-bottom: 32px;
+}
+.avail-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; flex-shrink: 0; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+.cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-white { background: var(--white); color: var(--black); }
+.btn-white:hover { background: #f0f0f0; transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: rgba(255,255,255,.8); border: 1px solid rgba(255,255,255,.2); }
+.btn-ghost:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.4); }
+
+/* ── Contact ─────────────────────────────────────────── */
+.contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.contact-info .t-h1 { margin-bottom: 16px; }
+.contact-info .t-body { margin-bottom: 36px; }
+.c-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+.c-icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+  background: var(--bg-soft); border: 1px solid var(--border);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  font-size: .9rem;
+}
+.c-label { font-size: .75rem; color: var(--muted); margin-bottom: 3px; }
+.c-val { font-size: .9rem; font-weight: 500; }
+
+/* Form */
+.contact-form {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 36px;
+}
+.form-group { margin-bottom: 18px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+label {
+  display: block; font-size: .8rem; font-weight: 600;
+  margin-bottom: 7px; color: var(--black);
+}
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: .875rem;
+  color: var(--black);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--black);
+  box-shadow: 0 0 0 3px rgba(0,0,0,.05);
+}
+.form-textarea { min-height: 110px; resize: vertical; }
+.form-input::placeholder, .form-textarea::placeholder { color: #c0c0c0; }
+
+/* ── Footer ──────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+}
+.footer-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-logo { font-size: .875rem; font-weight: 700; letter-spacing: -.01em; }
+.footer-copy { font-size: .78rem; color: var(--muted); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: .78rem; color: var(--muted); transition: color .2s; }
+.footer-links a:hover { color: var(--black); }
+
+/* ── Toast ───────────────────────────────────────────── */
+.toast {
+  position: fixed; bottom: 28px; left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: var(--black); color: var(--white);
+  padding: 12px 22px; border-radius: 8px;
+  font-size: .875rem; font-weight: 500;
+  z-index: 999; opacity: 0;
+  transition: all .3s var(--ease); pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ── Fade in ─────────────────────────────────────────── */
+.fade { opacity: 0; transform: translateY(20px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.fade.visible { opacity: 1; transform: none; }
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 56px; }
+  .hero-visual { order: -1; }
+  .browser-frame { max-width: 400px; margin: 0 auto; }
+  .v-badge.b1 { left: 0; }
+  .v-badge.b2 { right: 0; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: repeat(2,1fr); }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  #navCta { display: none; }
+  .section, .section-sm { padding: 72px 0; }
+  .hero-inner { padding: 60px 24px; }
+  .container { padding: 0 20px; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .hero-meta { grid-template-columns: repeat(3,1fr); gap: 16px; }
+  .cta-actions { flex-direction: column; align-items: center; }
+  .contact-form { padding: 24px; }
+}
+@media (max-width: 480px) {
+  .hero-actions { flex-direction: column; }
+  .hero-meta { grid-template-columns: 1fr 1fr; }
+  .steps-grid .step-item { padding: 28px 24px; }
+  .services-grid .service-item { padding: 28px 24px; }
+}
+
   </style>
 </head>
 <body>
 
-<!-- ── Navigation ──────────────────────────────────── -->
-<nav id="navbar">
+<!-- ── Nav ──────────────────────────────────────────── -->
+<nav>
   <div class="container nav-inner">
-    <a href="#" class="nav-logo">
-      <span data-lang="en" class="active">WebCraft BCN</span>
-      <span data-lang="es">WebCraft BCN</span>
-      <span data-lang="ca">WebCraft BCN</span>
-    </a>
+    <div class="nav-logo">N1 <span>Web Design Barcelona</span></div>
 
     <ul class="nav-links">
-      <li><a href="#how" data-i18n="nav_how"></a></li>
+      <li><a href="#process" data-i18n="nav_how"></a></li>
       <li><a href="#portfolio" data-i18n="nav_portfolio"></a></li>
       <li><a href="#about" data-i18n="nav_about"></a></li>
       <li><a href="#reviews" data-i18n="nav_reviews"></a></li>
@@ -839,7 +615,7 @@
         <button class="lang-btn" data-lang-target="es">ES</button>
         <button class="lang-btn" data-lang-target="ca">CA</button>
       </div>
-      <a href="#contact" class="btn btn-primary" id="navCta" style="padding:10px 20px;font-size:.85rem;">
+      <a href="#contact" class="btn btn-dark" id="navCta" style="padding:8px 16px;font-size:.8rem;">
         <span data-i18n="nav_cta"></span>
       </a>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -851,7 +627,7 @@
 
 <!-- Mobile nav -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="#how" data-i18n="nav_how"></a>
+  <a href="#process" data-i18n="nav_how"></a>
   <a href="#portfolio" data-i18n="nav_portfolio"></a>
   <a href="#about" data-i18n="nav_about"></a>
   <a href="#reviews" data-i18n="nav_reviews"></a>
@@ -863,305 +639,295 @@
   </div>
 </div>
 
-<!-- ── Hero ────────────────────────────────────────── -->
+<!-- ── Hero ─────────────────────────────────────────── -->
 <section class="hero" id="home">
   <div class="hero-inner">
+
     <div class="hero-content">
-      <div class="hero-badge">
-        <span class="dot"></span>
-        <span data-i18n="hero_badge"></span>
+      <div class="hero-eyebrow">
+        <div class="hero-dot"></div>
+        <span class="t-label" style="color:var(--mid)" data-i18n="hero_eyebrow"></span>
       </div>
-      <h1 class="hero-title">
-        <span data-i18n="hero_title_1"></span><br/>
-        <span class="highlight" data-i18n="hero_title_2"></span>
-      </h1>
-      <p class="hero-sub" data-i18n="hero_sub"></p>
+      <h1 class="t-display hero-title" data-i18n="hero_title"></h1>
+      <p class="t-body hero-sub" data-i18n="hero_sub"></p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">
-          <span>🚀</span> <span data-i18n="hero_cta1"></span>
-        </a>
-        <a href="#portfolio" class="btn btn-outline" data-i18n="hero_cta2"></a>
+        <a href="#contact" class="btn btn-dark btn-lg" data-i18n="hero_cta1"></a>
+        <a href="#portfolio" class="btn btn-outline btn-lg" data-i18n="hero_cta2"></a>
       </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-num">100%</div>
-          <div class="stat-label" data-i18n="stat_free"></div>
+      <div class="hero-meta">
+        <div>
+          <div class="meta-num">100%</div>
+          <div class="meta-label" data-i18n="stat_free"></div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">3</div>
-          <div class="stat-label" data-i18n="stat_spots"></div>
+        <div>
+          <div class="meta-num">3</div>
+          <div class="meta-label" data-i18n="stat_spots"></div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">BCN</div>
-          <div class="stat-label" data-i18n="stat_city"></div>
+        <div>
+          <div class="meta-num">BCN</div>
+          <div class="meta-label" data-i18n="stat_city"></div>
         </div>
       </div>
     </div>
 
     <div class="hero-visual">
-      <div class="hero-mockup">
-        <div class="mockup-bar">
-          <div class="mockup-dot"></div>
-          <div class="mockup-dot"></div>
-          <div class="mockup-dot"></div>
-          <div class="mockup-url">yourwebsite.com</div>
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div>
+          <div class="b-url">yourwebsite.com</div>
         </div>
-        <div class="mockup-body">
-          <div class="mockup-hero-bar">
-            <svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="#4f46e5" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
-            </svg>
+        <div class="browser-content">
+          <div class="bc-nav">
+            <div class="bc-logo"></div>
+            <div class="bc-nav-links">
+              <div class="bc-nav-link"></div>
+              <div class="bc-nav-link"></div>
+              <div class="bc-nav-link"></div>
+            </div>
           </div>
-          <div class="mockup-lines">
-            <div class="mockup-line"></div>
-            <div class="mockup-line"></div>
-            <div class="mockup-line"></div>
+          <div class="bc-hero">
+            <div class="bc-title"></div>
+            <div class="bc-sub"></div>
+            <div class="bc-cta"></div>
           </div>
-          <div class="mockup-cards">
-            <div class="mockup-card"></div>
-            <div class="mockup-card"></div>
-            <div class="mockup-card"></div>
+          <div class="bc-cards">
+            <div class="bc-card"></div>
+            <div class="bc-card"></div>
+            <div class="bc-card"></div>
           </div>
         </div>
       </div>
-      <div class="float-badge b1">
-        <span class="badge-icon">⭐</span>
-        <span data-i18n="hero_float1"></span>
+      <div class="v-badge b1">
+        <span class="v-badge-icon">★</span>
+        <span data-i18n="hero_b1"></span>
       </div>
-      <div class="float-badge b2">
-        <span class="badge-icon">🎁</span>
-        <span data-i18n="hero_float2"></span>
+      <div class="v-badge b2">
+        <span class="v-badge-icon">→</span>
+        <span data-i18n="hero_b2"></span>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- ── How It Works ─────────────────────────────────── -->
-<section class="section" id="how">
+<!-- ── Process ───────────────────────────────────────── -->
+<section class="section" id="process">
   <div class="container">
-    <div class="fade-in">
-      <span class="section-tag" data-i18n="how_tag"></span>
-      <h2 class="section-title" data-i18n="how_title"></h2>
-      <p class="section-sub" data-i18n="how_sub"></p>
+    <div class="section-label fade">
+      <span class="t-label" data-i18n="how_tag"></span>
+      <h2 class="t-h1" data-i18n="how_title"></h2>
+      <p class="t-body" data-i18n="how_sub"></p>
     </div>
-    <div class="steps-grid fade-in">
-      <div class="step-card">
-        <div class="step-icon">📞</div>
-        <div class="step-num">01</div>
-        <div class="step-title" data-i18n="step1_title"></div>
-        <div class="step-text" data-i18n="step1_text"></div>
+    <div class="steps-grid fade">
+      <div class="step-item">
+        <span class="step-n">01</span>
+        <h3 class="t-h2" data-i18n="step1_title"></h3>
+        <p class="t-small" data-i18n="step1_text"></p>
       </div>
-      <div class="step-card">
-        <div class="step-icon">🎨</div>
-        <div class="step-num">02</div>
-        <div class="step-title" data-i18n="step2_title"></div>
-        <div class="step-text" data-i18n="step2_text"></div>
+      <div class="step-item">
+        <span class="step-n">02</span>
+        <h3 class="t-h2" data-i18n="step2_title"></h3>
+        <p class="t-small" data-i18n="step2_text"></p>
       </div>
-      <div class="step-card">
-        <div class="step-icon">🌟</div>
-        <div class="step-num">03</div>
-        <div class="step-title" data-i18n="step3_title"></div>
-        <div class="step-text" data-i18n="step3_text"></div>
+      <div class="step-item">
+        <span class="step-n">03</span>
+        <h3 class="t-h2" data-i18n="step3_title"></h3>
+        <p class="t-small" data-i18n="step3_text"></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Services / What I offer ─────────────────────── -->
-<section class="section portfolio-bg">
+<div class="divider"></div>
+
+<!-- ── Services ──────────────────────────────────────── -->
+<section class="section services-bg">
   <div class="container">
-    <div class="fade-in" style="text-align:center;">
-      <span class="section-tag" data-i18n="offer_tag"></span>
-      <h2 class="section-title" data-i18n="offer_title"></h2>
-      <p class="section-sub" style="margin:0 auto 56px;" data-i18n="offer_sub"></p>
+    <div class="section-label centered fade">
+      <span class="t-label" data-i18n="offer_tag"></span>
+      <h2 class="t-h1" data-i18n="offer_title"></h2>
+      <p class="t-body" data-i18n="offer_sub"></p>
     </div>
-    <div class="offer-grid fade-in">
-      <div class="offer-card">
-        <div class="offer-icon">💻</div>
-        <div class="offer-title" data-i18n="offer1_title"></div>
-        <div class="offer-text" data-i18n="offer1_text"></div>
-        <ul class="offer-list">
-          <li data-i18n="offer1_f1"></li>
-          <li data-i18n="offer1_f2"></li>
-          <li data-i18n="offer1_f3"></li>
-          <li data-i18n="offer1_f4"></li>
+    <div class="services-grid fade">
+      <div class="service-item">
+        <span class="s-icon">◻</span>
+        <h3 class="t-h2" data-i18n="offer1_title"></h3>
+        <p class="t-small" data-i18n="offer1_text"></p>
+        <ul class="feature-list">
+          <li><span class="f-check"></span><span data-i18n="offer1_f1"></span></li>
+          <li><span class="f-check"></span><span data-i18n="offer1_f2"></span></li>
+          <li><span class="f-check"></span><span data-i18n="offer1_f3"></span></li>
+          <li><span class="f-check"></span><span data-i18n="offer1_f4"></span></li>
         </ul>
       </div>
-      <div class="offer-card">
-        <div class="offer-icon">📱</div>
-        <div class="offer-title" data-i18n="offer2_title"></div>
-        <div class="offer-text" data-i18n="offer2_text"></div>
-        <ul class="offer-list">
-          <li data-i18n="offer2_f1"></li>
-          <li data-i18n="offer2_f2"></li>
-          <li data-i18n="offer2_f3"></li>
-          <li data-i18n="offer2_f4"></li>
+      <div class="service-item">
+        <span class="s-icon">◈</span>
+        <h3 class="t-h2" data-i18n="offer2_title"></h3>
+        <p class="t-small" data-i18n="offer2_text"></p>
+        <ul class="feature-list">
+          <li><span class="f-check"></span><span data-i18n="offer2_f1"></span></li>
+          <li><span class="f-check"></span><span data-i18n="offer2_f2"></span></li>
+          <li><span class="f-check"></span><span data-i18n="offer2_f3"></span></li>
+          <li><span class="f-check"></span><span data-i18n="offer2_f4"></span></li>
         </ul>
       </div>
-      <div class="offer-card">
-        <div class="offer-icon">🔍</div>
-        <div class="offer-title" data-i18n="offer3_title"></div>
-        <div class="offer-text" data-i18n="offer3_text"></div>
-        <ul class="offer-list">
-          <li data-i18n="offer3_f1"></li>
-          <li data-i18n="offer3_f2"></li>
-          <li data-i18n="offer3_f3"></li>
-          <li data-i18n="offer3_f4"></li>
+      <div class="service-item">
+        <span class="s-icon">◎</span>
+        <h3 class="t-h2" data-i18n="offer3_title"></h3>
+        <p class="t-small" data-i18n="offer3_text"></p>
+        <ul class="feature-list">
+          <li><span class="f-check"></span><span data-i18n="offer3_f1"></span></li>
+          <li><span class="f-check"></span><span data-i18n="offer3_f2"></span></li>
+          <li><span class="f-check"></span><span data-i18n="offer3_f3"></span></li>
+          <li><span class="f-check"></span><span data-i18n="offer3_f4"></span></li>
         </ul>
       </div>
-      <div class="offer-card">
-        <div class="offer-icon">⚡</div>
-        <div class="offer-title" data-i18n="offer4_title"></div>
-        <div class="offer-text" data-i18n="offer4_text"></div>
-        <ul class="offer-list">
-          <li data-i18n="offer4_f1"></li>
-          <li data-i18n="offer4_f2"></li>
-          <li data-i18n="offer4_f3"></li>
-          <li data-i18n="offer4_f4"></li>
+      <div class="service-item">
+        <span class="s-icon">◇</span>
+        <h3 class="t-h2" data-i18n="offer4_title"></h3>
+        <p class="t-small" data-i18n="offer4_text"></p>
+        <ul class="feature-list">
+          <li><span class="f-check"></span><span data-i18n="offer4_f1"></span></li>
+          <li><span class="f-check"></span><span data-i18n="offer4_f2"></span></li>
+          <li><span class="f-check"></span><span data-i18n="offer4_f3"></span></li>
+          <li><span class="f-check"></span><span data-i18n="offer4_f4"></span></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Portfolio ────────────────────────────────────── -->
+<!-- ── Portfolio ─────────────────────────────────────── -->
 <section class="section" id="portfolio">
   <div class="container">
-    <div class="fade-in">
-      <span class="section-tag" data-i18n="port_tag"></span>
-      <h2 class="section-title" data-i18n="port_title"></h2>
-      <p class="section-sub" data-i18n="port_sub"></p>
+    <div class="section-label fade">
+      <span class="t-label" data-i18n="port_tag"></span>
+      <h2 class="t-h1" data-i18n="port_title"></h2>
+      <p class="t-body" data-i18n="port_sub"></p>
     </div>
-    <div class="portfolio-grid fade-in">
+    <div class="portfolio-grid fade">
 
-      <!-- Slot 1 – replace src with your screenshot -->
-      <div class="portfolio-card">
-        <div class="portfolio-img">
+      <!-- Card 1 — replace img src when ready -->
+      <div class="p-card">
+        <div class="p-img">
           <!-- <img src="assets/portfolio-1.jpg" alt="Project 1" /> -->
-          <div class="portfolio-placeholder">
-            <span class="icon">🖼️</span>
+          <div class="p-placeholder">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
             <span data-i18n="port_soon"></span>
           </div>
-          <span class="coming-soon-badge" data-i18n="port_badge"></span>
+          <span class="p-soon" data-i18n="port_badge"></span>
         </div>
-        <div class="portfolio-info">
-          <span class="portfolio-tag" data-i18n="port1_tag"></span>
-          <div class="portfolio-name" data-i18n="port1_name"></div>
-          <div class="portfolio-desc" data-i18n="port1_desc"></div>
+        <div class="p-body">
+          <div class="p-tag" data-i18n="port1_tag"></div>
+          <div class="p-name" data-i18n="port1_name"></div>
+          <div class="p-desc" data-i18n="port1_desc"></div>
         </div>
       </div>
 
-      <!-- Slot 2 -->
-      <div class="portfolio-card">
-        <div class="portfolio-img">
+      <!-- Card 2 -->
+      <div class="p-card">
+        <div class="p-img">
           <!-- <img src="assets/portfolio-2.jpg" alt="Project 2" /> -->
-          <div class="portfolio-placeholder">
-            <span class="icon">🖼️</span>
+          <div class="p-placeholder">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
             <span data-i18n="port_soon"></span>
           </div>
-          <span class="coming-soon-badge" data-i18n="port_badge"></span>
+          <span class="p-soon" data-i18n="port_badge"></span>
         </div>
-        <div class="portfolio-info">
-          <span class="portfolio-tag" data-i18n="port2_tag"></span>
-          <div class="portfolio-name" data-i18n="port2_name"></div>
-          <div class="portfolio-desc" data-i18n="port2_desc"></div>
+        <div class="p-body">
+          <div class="p-tag" data-i18n="port2_tag"></div>
+          <div class="p-name" data-i18n="port2_name"></div>
+          <div class="p-desc" data-i18n="port2_desc"></div>
         </div>
       </div>
 
-      <!-- Slot 3 -->
-      <div class="portfolio-card">
-        <div class="portfolio-img">
+      <!-- Card 3 -->
+      <div class="p-card">
+        <div class="p-img">
           <!-- <img src="assets/portfolio-3.jpg" alt="Project 3" /> -->
-          <div class="portfolio-placeholder">
-            <span class="icon">🖼️</span>
+          <div class="p-placeholder">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
             <span data-i18n="port_soon"></span>
           </div>
-          <span class="coming-soon-badge" data-i18n="port_badge"></span>
+          <span class="p-soon" data-i18n="port_badge"></span>
         </div>
-        <div class="portfolio-info">
-          <span class="portfolio-tag" data-i18n="port3_tag"></span>
-          <div class="portfolio-name" data-i18n="port3_name"></div>
-          <div class="portfolio-desc" data-i18n="port3_desc"></div>
+        <div class="p-body">
+          <div class="p-tag" data-i18n="port3_tag"></div>
+          <div class="p-name" data-i18n="port3_name"></div>
+          <div class="p-desc" data-i18n="port3_desc"></div>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
 
 <!-- ── About ─────────────────────────────────────────── -->
-<section class="section portfolio-bg" id="about">
+<section class="section" id="about">
   <div class="container">
-    <div class="about-inner">
-      <div class="about-text fade-in">
-        <span class="section-tag" data-i18n="about_tag"></span>
-        <h2 class="section-title" data-i18n="about_title"></h2>
-        <p data-i18n="about_p1"></p>
-        <p data-i18n="about_p2"></p>
-        <div class="skills-row">
-          <span class="skill-tag">HTML / CSS</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">Responsive Design</span>
-          <span class="skill-tag">UI / UX</span>
-          <span class="skill-tag">SEO</span>
-          <span class="skill-tag">GitHub Pages</span>
-          <span class="skill-tag">Performance</span>
-        </div>
+    <div class="about-inner fade">
+      <span class="t-label" style="display:block;margin-bottom:12px;" data-i18n="about_tag"></span>
+      <h2 class="t-h1" style="margin-bottom:24px;" data-i18n="about_title"></h2>
+      <p class="t-body" data-i18n="about_p1"></p>
+      <p class="t-body" data-i18n="about_p2"></p>
+      <div class="skills">
+        <span class="skill">HTML / CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Responsive Design</span>
+        <span class="skill">UI / UX</span>
+        <span class="skill">SEO</span>
+        <span class="skill">GitHub Pages</span>
+        <span class="skill">Performance</span>
+        <span class="skill">Mobile First</span>
       </div>
+    </div>
   </div>
 </section>
 
-<!-- ── Reviews ──────────────────────────────────────── -->
-<section class="section" id="reviews">
+<!-- ── Reviews ───────────────────────────────────────── -->
+<section class="section reviews-bg" id="reviews">
   <div class="container">
-    <div class="fade-in" style="text-align:center;">
-      <span class="section-tag" data-i18n="rev_tag"></span>
-      <h2 class="section-title" data-i18n="rev_title"></h2>
-      <p class="section-sub" style="margin:0 auto 56px;" data-i18n="rev_sub"></p>
+    <div class="section-label centered fade">
+      <span class="t-label" data-i18n="rev_tag"></span>
+      <h2 class="t-h1" data-i18n="rev_title"></h2>
+      <p class="t-body" data-i18n="rev_sub"></p>
     </div>
-    <div class="reviews-grid fade-in">
+    <div class="reviews-grid fade">
 
-      <!-- Placeholder 1 -->
-      <div class="review-card review-placeholder">
-        <div class="review-text">
-          <span class="icon">💬</span>
-          <span data-i18n="rev_soon"></span>
-        </div>
-        <div class="review-author">
-          <div class="review-avatar">😊</div>
+      <div class="r-card r-ph">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text" data-i18n="rev_soon"></p>
+        <div class="r-author">
+          <div class="r-avatar">?</div>
           <div>
-            <div class="review-name" data-i18n="rev_ph_name"></div>
-            <div class="review-role" data-i18n="rev_ph_role"></div>
+            <div class="r-name" data-i18n="rev_ph_name"></div>
+            <div class="r-role" data-i18n="rev_ph_role"></div>
           </div>
         </div>
       </div>
 
-      <!-- Placeholder 2 -->
-      <div class="review-card review-placeholder">
-        <div class="review-text">
-          <span class="icon">💬</span>
-          <span data-i18n="rev_soon"></span>
-        </div>
-        <div class="review-author">
-          <div class="review-avatar">😊</div>
+      <div class="r-card r-ph">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text" data-i18n="rev_soon"></p>
+        <div class="r-author">
+          <div class="r-avatar">?</div>
           <div>
-            <div class="review-name" data-i18n="rev_ph_name"></div>
-            <div class="review-role" data-i18n="rev_ph_role"></div>
+            <div class="r-name" data-i18n="rev_ph_name"></div>
+            <div class="r-role" data-i18n="rev_ph_role"></div>
           </div>
         </div>
       </div>
 
-      <!-- Placeholder 3 -->
-      <div class="review-card review-placeholder">
-        <div class="review-text">
-          <span class="icon">💬</span>
-          <span data-i18n="rev_soon"></span>
-        </div>
-        <div class="review-author">
-          <div class="review-avatar">😊</div>
+      <div class="r-card r-ph">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text" data-i18n="rev_soon"></p>
+        <div class="r-author">
+          <div class="r-avatar">?</div>
           <div>
-            <div class="review-name" data-i18n="rev_ph_name"></div>
-            <div class="review-role" data-i18n="rev_ph_role"></div>
+            <div class="r-name" data-i18n="rev_ph_name"></div>
+            <div class="r-role" data-i18n="rev_ph_role"></div>
           </div>
         </div>
       </div>
@@ -1170,76 +936,74 @@
   </div>
 </section>
 
-<!-- ── CTA Banner ───────────────────────────────────── -->
-<section class="cta-section">
-  <div class="container" style="text-align:center;">
-    <div class="spots-badge fade-in">
-      <span class="spots-dot"></span>
-      <span data-i18n="cta_spots"></span>
-    </div>
-    <h2 class="cta-title section-title fade-in" data-i18n="cta_title"></h2>
-    <p class="cta-sub section-sub fade-in" data-i18n="cta_sub"></p>
-    <div class="cta-actions fade-in">
-      <a href="#contact" class="btn btn-white">
-        <span>✉️</span> <span data-i18n="cta_btn1"></span>
-      </a>
-      <a href="https://wa.me/34654269467" class="btn btn-white-outline" target="_blank" rel="noopener">
-        <span>💬</span> <span data-i18n="cta_btn2"></span>
-      </a>
+<!-- ── CTA ───────────────────────────────────────────── -->
+<section class="cta-strip">
+  <div class="container">
+    <div class="cta-inner fade">
+      <span class="cta-tag" data-i18n="cta_eyebrow"></span>
+      <div class="cta-avail">
+        <span class="avail-dot"></span>
+        <span data-i18n="cta_spots"></span>
+      </div>
+      <h2 class="t-h1" data-i18n="cta_title"></h2>
+      <p class="t-body" data-i18n="cta_sub"></p>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-white btn-lg" data-i18n="cta_btn1"></a>
+        <a href="https://wa.me/34654269467" class="btn btn-ghost btn-lg" target="_blank" rel="noopener" data-i18n="cta_btn2"></a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── Contact ──────────────────────────────────────── -->
+<!-- ── Contact ───────────────────────────────────────── -->
 <section class="section" id="contact">
   <div class="container">
     <div class="contact-inner">
-      <div class="contact-info fade-in">
-        <span class="section-tag" data-i18n="contact_tag"></span>
-        <h2 data-i18n="contact_title"></h2>
-        <p data-i18n="contact_sub"></p>
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
+      <div class="contact-info fade">
+        <span class="t-label" style="display:block;margin-bottom:12px;" data-i18n="contact_tag"></span>
+        <h2 class="t-h1" data-i18n="contact_title"></h2>
+        <p class="t-body" data-i18n="contact_sub"></p>
+        <div class="c-item">
+          <div class="c-icon">📍</div>
           <div>
-            <div class="contact-label" data-i18n="contact_loc_label"></div>
-            <div class="contact-val">Barcelona, Catalunya</div>
+            <div class="c-label" data-i18n="contact_loc"></div>
+            <div class="c-val">Barcelona, Catalunya</div>
           </div>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon">📧</div>
+        <div class="c-item">
+          <div class="c-icon">✉</div>
           <div>
-            <div class="contact-label">Email</div>
-            <div class="contact-val">n1webdesignbarcelona@gmail.com</div>
+            <div class="c-label">Email</div>
+            <div class="c-val">n1webdesignbarcelona@gmail.com</div>
           </div>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon">💬</div>
+        <div class="c-item">
+          <div class="c-icon">💬</div>
           <div>
-            <div class="contact-label">WhatsApp / Instagram</div>
-            <!-- Replace with your handle -->
-            <div class="contact-val">@webcraftbcn</div>
+            <div class="c-label">WhatsApp</div>
+            <div class="c-val">+34 654 269 467</div>
           </div>
         </div>
       </div>
 
-      <div class="contact-form fade-in">
+      <div class="contact-form fade">
         <form id="contactForm" novalidate>
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label" data-i18n="form_name"></label>
+              <label data-i18n="form_name"></label>
               <input class="form-input" type="text" name="name" required autocomplete="name" />
             </div>
             <div class="form-group">
-              <label class="form-label" data-i18n="form_email"></label>
+              <label data-i18n="form_email"></label>
               <input class="form-input" type="email" name="email" required autocomplete="email" />
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label" data-i18n="form_business"></label>
+            <label data-i18n="form_business"></label>
             <input class="form-input" type="text" name="business" />
           </div>
           <div class="form-group">
-            <label class="form-label" data-i18n="form_type"></label>
+            <label data-i18n="form_type"></label>
             <select class="form-select" name="type">
               <option value="" data-i18n="form_type_ph"></option>
               <option value="restaurant" data-i18n="form_type_1"></option>
@@ -1249,11 +1013,11 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label" data-i18n="form_message"></label>
+            <label data-i18n="form_message"></label>
             <textarea class="form-textarea" name="message"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary form-submit">
-            <span>🚀</span> <span data-i18n="form_submit"></span>
+          <button type="submit" class="btn btn-dark btn-full" style="padding:13px 20px;">
+            <span data-i18n="form_submit"></span>
           </button>
         </form>
       </div>
@@ -1261,14 +1025,12 @@
   </div>
 </section>
 
-<!-- ── Footer ───────────────────────────────────────── -->
+<!-- ── Footer ────────────────────────────────────────── -->
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-logo">WebCraft BCN</div>
-      <div class="footer-copy">
-        © 2025 WebCraft BCN · Barcelona
-      </div>
+      <div class="footer-logo">N1 Web Design Barcelona</div>
+      <div class="footer-copy">© 2025 N1 Web Design Barcelona</div>
       <div class="footer-links">
         <a href="#home" data-i18n="nav_home"></a>
         <a href="#portfolio" data-i18n="nav_portfolio"></a>
@@ -1278,168 +1040,164 @@
   </div>
 </footer>
 
-<!-- Toast -->
 <div class="toast" id="toast"></div>
 
-<!-- ── Scripts ──────────────────────────────────────── -->
+<!-- ── JS ────────────────────────────────────────────── -->
 <script>
-// ── Translations ───────────────────────────────────────
+/* ── i18n ──────────────────────────────────────────── */
 const i18n = {
   en: {
     nav_home:       "Home",
-    nav_how:        "How it works",
+    nav_how:        "Process",
     nav_portfolio:  "Portfolio",
     nav_about:      "About",
     nav_reviews:    "Reviews",
     nav_contact:    "Contact",
     nav_cta:        "Get my website",
 
-    hero_badge:     "3 spots available · Barcelona",
-    hero_title_1:   "Your business deserves",
-    hero_title_2:   "a great website.",
-    hero_sub:       "I build professional websites for free — in exchange for an honest review. Based in Barcelona, serving clients worldwide.",
-    hero_cta1:      "Claim your free website",
-    hero_cta2:      "See my work",
-    hero_float1:    "Free website",
-    hero_float2:    "Just a review",
+    hero_eyebrow:   "Barcelona · 3 spots available",
+    hero_title:     "Your business needs a great website.",
+    hero_sub:       "I build professional, mobile-ready websites for free — in exchange for an honest review. Based in Barcelona.",
+    hero_cta1:      "Get your free website",
+    hero_cta2:      "View portfolio",
+    hero_b1:        "Free of charge",
+    hero_b2:        "Just a review",
     stat_free:      "Free of charge",
-    stat_spots:     "Spots left",
-    stat_city:      "Based in BCN",
+    stat_spots:     "Spots available",
+    stat_city:      "Based in Barcelona",
 
-    how_tag:        "The process",
-    how_title:      "Simple. Free. Professional.",
-    how_sub:        "Getting your website has never been easier. Here's exactly how it works from start to launch.",
+    how_tag:        "How it works",
+    how_title:      "Three steps to your new website.",
+    how_sub:        "Simple and transparent from start to launch.",
     step1_title:    "Tell me about your project",
-    step1_text:     "Fill in the contact form or send me a message. Tell me about your business, your goals and what you need from your website.",
-    step2_title:    "I design & build it",
-    step2_text:     "I craft a clean, fast and mobile-optimised website tailored to your brand — at absolutely no cost to you.",
+    step1_text:     "Fill in the form or send me a message. Tell me about your business, your goals and what you need.",
+    step2_title:    "I design and build it",
+    step2_text:     "I create a clean, fast and mobile-optimised website tailored to your brand — at no cost to you.",
     step3_title:    "You leave a review",
-    step3_text:     "Once you're happy with the result, all I ask is an honest review or testimonial. That's the only payment I need right now.",
+    step3_text:     "Once you are happy with the result, all I ask is an honest review or testimonial. That is the only payment I need right now.",
 
     offer_tag:      "What you get",
-    offer_title:    "Everything you need to go online",
-    offer_sub:      "Each website I deliver is crafted with care and built to real professional standards.",
+    offer_title:    "Everything included.",
+    offer_sub:      "Every project is built to real professional standards — no shortcuts.",
     offer1_title:   "Custom Design",
-    offer1_text:    "A unique design made specifically for your brand — not a template.",
+    offer1_text:    "A unique design built for your brand, not a template.",
     offer1_f1:      "Unique visual identity",
-    offer1_f2:      "Brand-matched colours & fonts",
-    offer1_f3:      "Modern & clean layout",
-    offer1_f4:      "Custom sections & pages",
+    offer1_f2:      "Brand-matched colours and fonts",
+    offer1_f3:      "Modern, clean layout",
+    offer1_f4:      "Custom sections and pages",
     offer2_title:   "Mobile First",
-    offer2_text:    "Your site will look perfect on every screen — phone, tablet or desktop.",
+    offer2_text:    "Your site will look perfect on every device.",
     offer2_f1:      "Fully responsive design",
     offer2_f2:      "Touch-friendly navigation",
     offer2_f3:      "Fast load on mobile networks",
     offer2_f4:      "Cross-browser compatible",
     offer3_title:   "SEO Basics",
     offer3_text:    "Built with the right foundations so search engines can find you.",
-    offer3_f1:      "Meta tags & descriptions",
+    offer3_f1:      "Meta tags and descriptions",
     offer3_f2:      "Semantic HTML structure",
     offer3_f3:      "Open Graph for social sharing",
     offer3_f4:      "Clean, readable URLs",
-    offer4_title:   "Fast & Ready to Launch",
+    offer4_title:   "Fast and Ready to Launch",
     offer4_text:    "Optimised code, ready to go live on GitHub Pages or any host.",
-    offer4_f1:      "Optimised images & assets",
+    offer4_f1:      "Optimised images and assets",
     offer4_f2:      "Minimal, clean code",
     offer4_f3:      "GitHub Pages ready",
-    offer4_f4:      "SSL & HTTPS compatible",
+    offer4_f4:      "SSL and HTTPS compatible",
 
-    port_tag:       "My work",
-    port_title:     "Portfolio",
-    port_sub:       "Projects coming soon — I'm actively looking for my first three clients. Your project could be featured here.",
-    port_soon:      "Screenshot coming soon",
-    port_badge:     "Coming soon",
+    port_tag:       "Portfolio",
+    port_title:     "My work.",
+    port_sub:       "Projects coming soon. I am actively looking for my first three clients — your project could be featured here.",
+    port_soon:      "Coming soon",
+    port_badge:     "Soon",
     port1_tag:      "Business",
     port1_name:     "Project 1",
-    port1_desc:     "Coming soon — your business here.",
+    port1_desc:     "Your business here.",
     port2_tag:      "Portfolio",
     port2_name:     "Project 2",
-    port2_desc:     "Coming soon — your business here.",
+    port2_desc:     "Your business here.",
     port3_tag:      "E-commerce",
     port3_name:     "Project 3",
-    port3_desc:     "Coming soon — your business here.",
+    port3_desc:     "Your business here.",
 
-    about_photo:    "Your photo here",
-    about_float:    "Web Creator",
-    about_tag:      "About me",
-    about_title:    "Hi, I'm a web creator based in Barcelona.",
-    about_p1:       "I'm passionate about building clean, fast and professional websites that help businesses grow online. Right now I'm looking for my first three clients — and I'm offering my skills completely free in exchange for a review.",
-    about_p2:       "My approach is simple: I treat every project as if it were my own business. From design to launch, I make sure every detail is right.",
+    about_tag:      "About",
+    about_title:    "Hi, I am a web designer based in Barcelona.",
+    about_p1:       "I am passionate about building clean, fast and professional websites that help businesses grow online. Right now I am looking for my first three clients and I am offering my work completely free in exchange for a review.",
+    about_p2:       "I treat every project as if it were my own. From design to launch, I make sure every detail is right.",
 
     rev_tag:        "Reviews",
-    rev_title:      "What clients say",
-    rev_sub:        "Be one of the first three! These spots are reserved for future reviews from my first clients.",
-    rev_soon:       "This review is reserved for my next client. Could it be you?",
+    rev_title:      "What clients say.",
+    rev_sub:        "These spots are reserved for my first three clients. Be one of them.",
+    rev_soon:       "This review is reserved for my next client.",
     rev_ph_name:    "Your name here",
     rev_ph_role:    "Business owner · Barcelona",
 
-    cta_spots:      "Only 3 spots available",
-    cta_title:      "Ready to get your website?",
-    cta_sub:        "It's completely free. All I ask for is an honest review once the project is done.",
+    cta_eyebrow:    "Limited availability",
+    cta_spots:      "3 spots open right now",
+    cta_title:      "Ready to build your website?",
+    cta_sub:        "It is completely free. All I ask for is an honest review once the project is done.",
     cta_btn1:       "Contact me",
-    cta_btn2:       "WhatsApp me",
+    cta_btn2:       "WhatsApp",
 
-    contact_tag:    "Get in touch",
-    contact_title:  "Let's build your website",
-    contact_sub:    "Fill in the form and I'll get back to you within 24 hours. Tell me about your project and let's make something great.",
-    contact_loc_label: "Location",
+    contact_tag:    "Contact",
+    contact_title:  "Let us build your website.",
+    contact_sub:    "Fill in the form and I will reply within 24 hours.",
+    contact_loc:    "Location",
     form_name:      "Your name",
     form_email:     "Email address",
-    form_business:  "Business / Project name",
+    form_business:  "Business or project name",
     form_type:      "Type of website",
-    form_type_ph:   "Select a type…",
+    form_type_ph:   "Select a type",
     form_type_1:    "Restaurant / Café",
     form_type_2:    "Personal portfolio",
     form_type_3:    "Online shop",
     form_type_4:    "Other",
     form_message:   "Tell me about your project",
-    form_submit:    "Send my request",
-    toast_ok:       "Thanks! I'll reply within 24 hours. 🎉",
-    toast_err:      "Please fill in your name and a valid email.",
+    form_submit:    "Send request",
+    toast_ok:       "Thanks — I will reply within 24 hours.",
+    toast_err:      "Please enter your name and a valid email.",
   },
 
   es: {
     nav_home:       "Inicio",
-    nav_how:        "Cómo funciona",
+    nav_how:        "Proceso",
     nav_portfolio:  "Portfolio",
     nav_about:      "Sobre mí",
     nav_reviews:    "Opiniones",
     nav_contact:    "Contacto",
     nav_cta:        "Quiero mi web",
 
-    hero_badge:     "3 plazas disponibles · Barcelona",
-    hero_title_1:   "Tu negocio merece",
-    hero_title_2:   "una web increíble.",
-    hero_sub:       "Creo webs profesionales de forma gratuita, a cambio de una reseña honesta. Con base en Barcelona, atiendo clientes de todo el mundo.",
+    hero_eyebrow:   "Barcelona · 3 plazas disponibles",
+    hero_title:     "Tu negocio necesita una gran web.",
+    hero_sub:       "Creo webs profesionales y optimizadas para móvil de forma gratuita, a cambio de una reseña honesta. Con base en Barcelona.",
     hero_cta1:      "Quiero mi web gratis",
-    hero_cta2:      "Ver mi trabajo",
-    hero_float1:    "Web gratuita",
-    hero_float2:    "Solo una reseña",
+    hero_cta2:      "Ver portfolio",
+    hero_b1:        "Sin coste",
+    hero_b2:        "Solo una reseña",
     stat_free:      "Sin coste",
     stat_spots:     "Plazas disponibles",
-    stat_city:      "Basado en BCN",
+    stat_city:      "Basado en Barcelona",
 
-    how_tag:        "El proceso",
-    how_title:      "Simple. Gratis. Profesional.",
-    how_sub:        "Conseguir tu web nunca ha sido tan fácil. Así funciona exactamente, de principio a fin.",
+    how_tag:        "Cómo funciona",
+    how_title:      "Tres pasos para tu nueva web.",
+    how_sub:        "Simple y transparente de principio a fin.",
     step1_title:    "Cuéntame tu proyecto",
-    step1_text:     "Rellena el formulario o envíame un mensaje. Cuéntame tu negocio, tus objetivos y qué necesitas de tu web.",
-    step2_title:    "Diseño y la construyo",
-    step2_text:     "Creo una web limpia, rápida y optimizada para móvil, adaptada a tu marca — completamente gratis.",
+    step1_text:     "Rellena el formulario o envíame un mensaje. Cuéntame tu negocio, tus objetivos y lo que necesitas.",
+    step2_title:    "Diseño y construyo",
+    step2_text:     "Creo una web limpia, rápida y optimizada para móvil, adaptada a tu marca — sin ningún coste.",
     step3_title:    "Tú dejas una reseña",
-    step3_text:     "Cuando estés satisfecho con el resultado, solo te pido una reseña o testimonio honesto. Ese es el único pago que necesito ahora mismo.",
+    step3_text:     "Cuando estés satisfecho con el resultado, solo te pido una reseña honesta. Ese es el único pago que necesito ahora mismo.",
 
     offer_tag:      "Qué incluye",
-    offer_title:    "Todo lo que necesitas para estar online",
-    offer_sub:      "Cada web que entrego está hecha con cuidado y construida con estándares profesionales reales.",
+    offer_title:    "Todo incluido.",
+    offer_sub:      "Cada proyecto está construido con estándares profesionales reales, sin atajos.",
     offer1_title:   "Diseño personalizado",
-    offer1_text:    "Un diseño único creado específicamente para tu marca, no una plantilla.",
+    offer1_text:    "Un diseño único para tu marca, no una plantilla.",
     offer1_f1:      "Identidad visual única",
     offer1_f2:      "Colores y fuentes de tu marca",
     offer1_f3:      "Diseño moderno y limpio",
     offer1_f4:      "Secciones y páginas a medida",
     offer2_title:   "Mobile First",
-    offer2_text:    "Tu web se verá perfecta en cualquier pantalla: móvil, tablet u ordenador.",
+    offer2_text:    "Tu web se verá perfecta en cualquier dispositivo.",
     offer2_f1:      "Diseño totalmente responsivo",
     offer2_f2:      "Navegación táctil optimizada",
     offer2_f3:      "Carga rápida en móviles",
@@ -1457,102 +1215,100 @@ const i18n = {
     offer4_f3:      "Lista para GitHub Pages",
     offer4_f4:      "Compatible con SSL y HTTPS",
 
-    port_tag:       "Mi trabajo",
-    port_title:     "Portfolio",
-    port_sub:       "Proyectos próximamente — estoy buscando activamente mis primeros tres clientes. Tu proyecto podría aparecer aquí.",
-    port_soon:      "Captura próximamente",
-    port_badge:     "Próximamente",
+    port_tag:       "Portfolio",
+    port_title:     "Mi trabajo.",
+    port_sub:       "Proyectos próximamente. Busco activamente mis primeros tres clientes — tu proyecto podría aparecer aquí.",
+    port_soon:      "Próximamente",
+    port_badge:     "Pronto",
     port1_tag:      "Negocio",
     port1_name:     "Proyecto 1",
-    port1_desc:     "Próximamente — tu negocio aquí.",
+    port1_desc:     "Tu negocio aquí.",
     port2_tag:      "Portfolio",
     port2_name:     "Proyecto 2",
-    port2_desc:     "Próximamente — tu negocio aquí.",
+    port2_desc:     "Tu negocio aquí.",
     port3_tag:      "E-commerce",
     port3_name:     "Proyecto 3",
-    port3_desc:     "Próximamente — tu negocio aquí.",
+    port3_desc:     "Tu negocio aquí.",
 
-    about_photo:    "Tu foto aquí",
-    about_float:    "Creador web",
     about_tag:      "Sobre mí",
-    about_title:    "Hola, soy creador web con base en Barcelona.",
-    about_p1:       "Me apasiona crear webs limpias, rápidas y profesionales que ayuden a los negocios a crecer online. Ahora mismo busco mis primeros tres clientes — y ofrezco mis servicios de forma gratuita a cambio de una reseña.",
-    about_p2:       "Mi enfoque es simple: trato cada proyecto como si fuera mi propio negocio. Desde el diseño hasta el lanzamiento, me aseguro de que cada detalle sea correcto.",
+    about_title:    "Hola, soy diseñador web con base en Barcelona.",
+    about_p1:       "Me apasiona crear webs limpias, rápidas y profesionales que ayuden a los negocios a crecer online. Ahora mismo busco mis primeros tres clientes y ofrezco mi trabajo completamente gratis a cambio de una reseña.",
+    about_p2:       "Trato cada proyecto como si fuera el mío propio. Desde el diseño hasta el lanzamiento, me aseguro de que cada detalle sea correcto.",
 
     rev_tag:        "Opiniones",
-    rev_title:      "Qué dicen los clientes",
-    rev_sub:        "¡Sé uno de los primeros tres! Estas plazas están reservadas para las futuras reseñas de mis primeros clientes.",
-    rev_soon:       "Esta reseña está reservada para mi próximo cliente. ¿Podrías ser tú?",
+    rev_title:      "Qué dicen los clientes.",
+    rev_sub:        "Estas plazas están reservadas para mis primeros tres clientes. Sé uno de ellos.",
+    rev_soon:       "Esta reseña está reservada para mi próximo cliente.",
     rev_ph_name:    "Tu nombre aquí",
     rev_ph_role:    "Propietario de negocio · Barcelona",
 
-    cta_spots:      "Solo 3 plazas disponibles",
+    cta_eyebrow:    "Disponibilidad limitada",
+    cta_spots:      "3 plazas disponibles ahora mismo",
     cta_title:      "¿Listo para tener tu web?",
     cta_sub:        "Es completamente gratis. Solo te pido una reseña honesta cuando el proyecto esté terminado.",
     cta_btn1:       "Contáctame",
-    cta_btn2:       "Escríbeme por WhatsApp",
+    cta_btn2:       "WhatsApp",
 
-    contact_tag:    "Ponte en contacto",
-    contact_title:  "Construyamos tu web",
-    contact_sub:    "Rellena el formulario y te respondo en menos de 24 horas. Cuéntame tu proyecto y hagamos algo genial.",
-    contact_loc_label: "Ubicación",
+    contact_tag:    "Contacto",
+    contact_title:  "Construyamos tu web.",
+    contact_sub:    "Rellena el formulario y te respondo en menos de 24 horas.",
+    contact_loc:    "Ubicación",
     form_name:      "Tu nombre",
     form_email:     "Correo electrónico",
     form_business:  "Nombre del negocio o proyecto",
     form_type:      "Tipo de web",
-    form_type_ph:   "Selecciona un tipo…",
+    form_type_ph:   "Selecciona un tipo",
     form_type_1:    "Restaurante / Café",
     form_type_2:    "Portfolio personal",
     form_type_3:    "Tienda online",
     form_type_4:    "Otro",
     form_message:   "Cuéntame tu proyecto",
-    form_submit:    "Enviar mi solicitud",
-    toast_ok:       "¡Gracias! Te respondo en menos de 24 horas. 🎉",
+    form_submit:    "Enviar solicitud",
+    toast_ok:       "Gracias — te respondo en menos de 24 horas.",
     toast_err:      "Por favor, rellena tu nombre y un email válido.",
   },
 
   ca: {
     nav_home:       "Inici",
-    nav_how:        "Com funciona",
+    nav_how:        "Procés",
     nav_portfolio:  "Portfolio",
     nav_about:      "Sobre mi",
     nav_reviews:    "Opinions",
     nav_contact:    "Contacte",
     nav_cta:        "Vull la meva web",
 
-    hero_badge:     "3 places disponibles · Barcelona",
-    hero_title_1:   "El teu negoci mereix",
-    hero_title_2:   "una web increïble.",
-    hero_sub:       "Creo webs professionals de manera gratuïta, a canvi d'una ressenya honesta. Basado a Barcelona, atenc clients de tot el món.",
+    hero_eyebrow:   "Barcelona · 3 places disponibles",
+    hero_title:     "El teu negoci necessita una gran web.",
+    hero_sub:       "Creo webs professionals i optimitzades per a mòbil de manera gratuïta, a canvi d'una ressenya honesta. Basat a Barcelona.",
     hero_cta1:      "Vull la meva web gratis",
-    hero_cta2:      "Veure el meu treball",
-    hero_float1:    "Web gratuïta",
-    hero_float2:    "Només una ressenya",
+    hero_cta2:      "Veure portfolio",
+    hero_b1:        "Sense cost",
+    hero_b2:        "Només una ressenya",
     stat_free:      "Sense cost",
     stat_spots:     "Places disponibles",
-    stat_city:      "Basat a BCN",
+    stat_city:      "Basat a Barcelona",
 
-    how_tag:        "El procés",
-    how_title:      "Simple. Gratis. Professional.",
-    how_sub:        "Aconseguir la teva web mai ha estat tan fàcil. Aquí t'explico exactament com funciona, de principi a fi.",
+    how_tag:        "Com funciona",
+    how_title:      "Tres passos per a la teva nova web.",
+    how_sub:        "Simple i transparent de principi a fi.",
     step1_title:    "Explica'm el teu projecte",
-    step1_text:     "Omple el formulari o envia'm un missatge. Explica'm el teu negoci, els teus objectius i el que necessites de la teva web.",
-    step2_title:    "Dissenyo i la construeixo",
-    step2_text:     "Creo una web neta, ràpida i optimitzada per a mòbil, adaptada a la teva marca — completament gratis.",
+    step1_text:     "Omple el formulari o envia'm un missatge. Explica'm el teu negoci, els teus objectius i el que necessites.",
+    step2_title:    "Dissenyo i construeixo",
+    step2_text:     "Creo una web neta, ràpida i optimitzada per a mòbil, adaptada a la teva marca — sense cap cost.",
     step3_title:    "Tu deixes una ressenya",
-    step3_text:     "Quan estiguis satisfet amb el resultat, només et demano una ressenya o testimoni honest. Aquest és l'únic pagament que necessito ara mateix.",
+    step3_text:     "Quan estiguis satisfet amb el resultat, només et demano una ressenya honesta. Aquell és l'únic pagament que necessito ara mateix.",
 
     offer_tag:      "Què inclou",
-    offer_title:    "Tot el que necessites per estar online",
-    offer_sub:      "Cada web que entrego està feta amb cura i construïda amb estàndards professionals reals.",
+    offer_title:    "Tot inclòs.",
+    offer_sub:      "Cada projecte està construït amb estàndards professionals reals, sense dreceres.",
     offer1_title:   "Disseny personalitzat",
-    offer1_text:    "Un disseny únic creat específicament per a la teva marca, no una plantilla.",
+    offer1_text:    "Un disseny únic per a la teva marca, no una plantilla.",
     offer1_f1:      "Identitat visual única",
     offer1_f2:      "Colors i fonts de la teva marca",
     offer1_f3:      "Disseny modern i net",
     offer1_f4:      "Seccions i pàgines a mida",
     offer2_title:   "Mobile First",
-    offer2_text:    "La teva web es veurà perfecta a qualsevol pantalla: mòbil, tauleta o ordinador.",
+    offer2_text:    "La teva web es veurà perfecta a qualsevol dispositiu.",
     offer2_f1:      "Disseny totalment responsiu",
     offer2_f2:      "Navegació tàctil optimitzada",
     offer2_f3:      "Càrrega ràpida en mòbils",
@@ -1570,167 +1326,121 @@ const i18n = {
     offer4_f3:      "Llesta per a GitHub Pages",
     offer4_f4:      "Compatible amb SSL i HTTPS",
 
-    port_tag:       "El meu treball",
-    port_title:     "Portfolio",
-    port_sub:       "Projectes aviat — estic buscant activament els meus primers tres clients. El teu projecte podria aparèixer aquí.",
-    port_soon:      "Captura aviat",
+    port_tag:       "Portfolio",
+    port_title:     "El meu treball.",
+    port_sub:       "Projectes aviat. Busco activament els meus primers tres clients — el teu projecte podria aparèixer aquí.",
+    port_soon:      "Aviat",
     port_badge:     "Aviat",
     port1_tag:      "Negoci",
     port1_name:     "Projecte 1",
-    port1_desc:     "Aviat — el teu negoci aquí.",
+    port1_desc:     "El teu negoci aquí.",
     port2_tag:      "Portfolio",
     port2_name:     "Projecte 2",
-    port2_desc:     "Aviat — el teu negoci aquí.",
+    port2_desc:     "El teu negoci aquí.",
     port3_tag:      "E-commerce",
     port3_name:     "Projecte 3",
-    port3_desc:     "Aviat — el teu negoci aquí.",
+    port3_desc:     "El teu negoci aquí.",
 
-    about_photo:    "La teva foto aquí",
-    about_float:    "Creador web",
     about_tag:      "Sobre mi",
-    about_title:    "Hola, soc creador web basat a Barcelona.",
-    about_p1:       "M'apassiona crear webs netes, ràpides i professionals que ajudin els negocis a créixer en línia. Ara mateix busco els meus primers tres clients — i ofereixo els meus serveis de manera gratuïta a canvi d'una ressenya.",
-    about_p2:       "El meu enfocament és simple: tracto cada projecte com si fos el meu propi negoci. Des del disseny fins al llançament, m'asseguro que cada detall sigui correcte.",
+    about_title:    "Hola, soc dissenyador web basat a Barcelona.",
+    about_p1:       "M'apassiona crear webs netes, ràpides i professionals que ajudin els negocis a créixer en línia. Ara mateix busco els meus primers tres clients i ofereixo el meu treball completament gratis a canvi d'una ressenya.",
+    about_p2:       "Tracto cada projecte com si fos el meu propi. Des del disseny fins al llançament, m'asseguro que cada detall sigui correcte.",
 
     rev_tag:        "Opinions",
-    rev_title:      "Què diuen els clients",
-    rev_sub:        "Sigues un dels primers tres! Aquestes places estan reservades per a les futures ressenyes dels meus primers clients.",
-    rev_soon:       "Aquesta ressenya està reservada per al meu proper client. Podria ser tu?",
+    rev_title:      "Què diuen els clients.",
+    rev_sub:        "Aquestes places estan reservades per als meus primers tres clients. Sigues un d'ells.",
+    rev_soon:       "Aquesta ressenya està reservada per al meu proper client.",
     rev_ph_name:    "El teu nom aquí",
     rev_ph_role:    "Propietari de negoci · Barcelona",
 
-    cta_spots:      "Només 3 places disponibles",
+    cta_eyebrow:    "Disponibilitat limitada",
+    cta_spots:      "3 places disponibles ara mateix",
     cta_title:      "Llest per tenir la teva web?",
     cta_sub:        "És completament gratis. Només et demano una ressenya honesta quan el projecte estigui acabat.",
     cta_btn1:       "Contacta'm",
-    cta_btn2:       "Escriu-me per WhatsApp",
+    cta_btn2:       "WhatsApp",
 
-    contact_tag:    "Posa't en contacte",
-    contact_title:  "Construïm la teva web",
-    contact_sub:    "Omple el formulari i et respondré en menys de 24 hores. Explica'm el teu projecte i fem alguna cosa genial.",
-    contact_loc_label: "Ubicació",
+    contact_tag:    "Contacte",
+    contact_title:  "Construïm la teva web.",
+    contact_sub:    "Omple el formulari i et respondré en menys de 24 hores.",
+    contact_loc:    "Ubicació",
     form_name:      "El teu nom",
     form_email:     "Adreça de correu",
     form_business:  "Nom del negoci o projecte",
     form_type:      "Tipus de web",
-    form_type_ph:   "Selecciona un tipus…",
+    form_type_ph:   "Selecciona un tipus",
     form_type_1:    "Restaurant / Cafè",
     form_type_2:    "Portfolio personal",
     form_type_3:    "Botiga online",
     form_type_4:    "Altre",
     form_message:   "Explica'm el teu projecte",
-    form_submit:    "Enviar la meva sol·licitud",
-    toast_ok:       "Gràcies! Et respondré en menys de 24 hores. 🎉",
+    form_submit:    "Enviar sol·licitud",
+    toast_ok:       "Gràcies — et respondré en menys de 24 hores.",
     toast_err:      "Si us plau, omple el teu nom i un correu vàlid.",
   }
 };
 
-// ── Active language ────────────────────────────────────
-let currentLang = 'en';
-
-function setLang(lang) {
-  currentLang = lang;
-  document.documentElement.lang = lang;
-
-  // Update all i18n elements
+/* ── Language ──────────────────────────────────────── */
+let lang = 'en';
+function setLang(l) {
+  lang = l;
+  document.documentElement.lang = l;
   document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    if (i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
+    const k = el.dataset.i18n;
+    if (i18n[l][k] !== undefined) el.textContent = i18n[l][k];
   });
-
-  // Update lang switcher buttons (both desktop & mobile)
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.langTarget === lang);
-  });
-
-  // Update <html lang>
-  document.documentElement.lang = lang;
-
-  // Update meta description
-  const metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc) metaDesc.content = i18n[lang]['hero_sub'];
-
-  // Update select placeholders
-  document.querySelectorAll('select [data-i18n]').forEach(opt => {
-    const key = opt.dataset.i18n;
-    if (i18n[lang][key]) opt.textContent = i18n[lang][key];
-  });
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.langTarget === l));
+  const m = document.querySelector('meta[name="description"]');
+  if (m) m.content = i18n[l].hero_sub;
 }
-
-// ── Lang switcher click ────────────────────────────────
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => setLang(btn.dataset.langTarget));
-});
-
-// Init
+document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.langTarget)));
 setLang('en');
 
-// ── Hamburger ──────────────────────────────────────────
-const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobileNav');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  mobileNav.classList.toggle('open');
-});
-// Close mobile nav on link click
-mobileNav.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    mobileNav.classList.remove('open');
-  });
-});
+/* ── Hamburger ─────────────────────────────────────── */
+const hbg = document.getElementById('hamburger');
+const mob = document.getElementById('mobileNav');
+hbg.addEventListener('click', () => { hbg.classList.toggle('open'); mob.classList.toggle('open'); });
+mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hbg.classList.remove('open'); mob.classList.remove('open'); }));
 
-// ── Scroll: nav shadow ─────────────────────────────────
+/* ── Scroll nav border ─────────────────────────────── */
 window.addEventListener('scroll', () => {
-  document.getElementById('navbar').style.boxShadow =
-    window.scrollY > 10 ? '0 2px 20px rgba(0,0,0,.08)' : 'none';
-});
+  document.querySelector('nav').style.borderBottomColor = window.scrollY > 8 ? '#e8e8e8' : 'transparent';
+}, { passive: true });
 
-// ── Fade-in observer ───────────────────────────────────
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+/* ── Fade observer ─────────────────────────────────── */
+const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
 
-// ── Contact form ───────────────────────────────────────
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const name  = this.name.value.trim();
-  const email = this.email.value.trim();
-  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (!name || !emailRe.test(email)) {
-    showToast(i18n[currentLang]['toast_err'], '#ef4444');
-    return;
-  }
-
-  // Replace this block with your own form submission (Formspree, EmailJS, etc.)
-  // Example with Formspree:
-  // fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: new FormData(this), headers:{'Accept':'application/json'} })
-  //   .then(() => { showToast(i18n[currentLang]['toast_ok']); this.reset(); });
-
-  showToast(i18n[currentLang]['toast_ok']);
-  this.reset();
-});
-
-function showToast(msg, color) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.style.background = color || '#0f172a';
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3500);
-}
-
-// ── Smooth anchor scroll offset ────────────────────────
+/* ── Smooth scroll ─────────────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (!target) return;
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
     e.preventDefault();
-    const offset = document.getElementById('navbar').offsetHeight + 16;
-    window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+    window.scrollTo({ top: t.offsetTop - 72, behavior: 'smooth' });
   });
 });
+
+/* ── Contact form ──────────────────────────────────── */
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = this.name.value.trim();
+  const email = this.email.value.trim();
+  if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    toast(i18n[lang].toast_err, '#c00'); return;
+  }
+  // Wire up Formspree: uncomment below and replace YOUR_ID
+  // fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: new FormData(this), headers:{Accept:'application/json'} })
+  //   .then(r => r.ok ? (toast(i18n[lang].toast_ok), this.reset()) : toast('Error — try again.', '#c00'));
+  toast(i18n[lang].toast_ok);
+  this.reset();
+});
+function toast(msg, bg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.style.background = bg || '#111';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3800);
+}
 </script>
 </body>
 </html>
